@@ -4,7 +4,7 @@ RUN apk add git
 WORKDIR /app
 COPY package*.json ./
 COPY tsconfig*.json ./
-RUN npm install
+RUN npm install -g npm@9.7.1
 COPY . ./
 RUN npm run build
 
