@@ -1,16 +1,16 @@
 import { Boom } from '@hapi/boom'
-import makeWASocket, { DisconnectReason, useSingleFileAuthState, fetchLatestBaileysVersion, delay, AnyMessageContent } from "@adiwajshing/baileys";
+import makeWASocket, { useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, delay, AnyMessageContent, AuthenticationState, Browsers } from "@whiskeysockets/baileys";
 import { FormatToIndonesian, FormatToWhatsappJid } from '../helper/PhoneNumberFormatter';
+import * as fs from 'fs';
 
-const AUTH_FILE_LOCATION = './data/session.json';
-const { state, saveState }  = useSingleFileAuthState(AUTH_FILE_LOCATION);
+const AUTH_FILE_LOCATION = './data/session';
 
 export class WhatsappService {
     qrcode: string = "";
     phoneNumber: string = "";
     sock: any;
 
-    constructor(){
+    constructor() {
 
     }
 
